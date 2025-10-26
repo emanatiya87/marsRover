@@ -3,6 +3,7 @@ import Btn from "./components/Btn";
 import SelectDiv from "./components/SelectDiv";
 import InputDiv from "./components/InputDiv";
 import { useCoardinations } from "./components/CoardinationsContext";
+import HeadTitle from "./components/HeadTitle";
 
 export default function Form() {
   const [code, setCode] = useState("");
@@ -84,6 +85,8 @@ export default function Form() {
 
   return (
     <>
+      <HeadTitle />
+
       <form onSubmit={runCode}>
         <InputDiv
           saveValue={(e) => setCode(e.target.value)}
