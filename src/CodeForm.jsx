@@ -4,14 +4,14 @@ import Btn from "./components/Btn";
 import { useState } from "react";
 export default function CodeForm() {
   const [coardinations, setCoardinations] = useState({
-    x: "",
-    y: "",
-    d: "", // 0: north, 1: east, 2: south, 3: west
+    x: 0,
+    y: 0,
+    d: 0, // 0: north, 1: east, 2: south, 3: west
   });
   const directions = ["north", "east", "south", "west"];
   const [nextCoordinates, setNextCoordinates] = useState({
-    x: "",
-    y: "",
+    x: 0,
+    y: 0,
   });
   const [code, setCode] = useState([]);
   function run(e) {

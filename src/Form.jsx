@@ -19,9 +19,6 @@ export default function Form() {
   function runCode(e) {
     e.preventDefault();
     let { x, y, d } = coardinations;
-    x = Number(x);
-    y = Number(y);
-    d = Number(d);
     let stopped = false;
 
     for (let i = 0; i < codeArr.length; i++) {

@@ -2,9 +2,9 @@ import { useContext, createContext, useState } from "react";
 const CoardinationsContext = createContext();
 export function CoardinationsProvider({ children }) {
   const [coardinations, setCoardinations] = useState({
-    x: "x",
-    y: "y",
-    d: "", // 0: north, 1: east, 2: south, 3: west
+    x: 0,
+    y: 0,
+    d: 0, // 0: north, 1: east, 2: south, 3: west
   });
 
   return (
