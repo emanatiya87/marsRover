@@ -1,4 +1,4 @@
-export default function InputDiv({ saveValue, title, placeholder }) {
+export default function InputDiv({ saveValue, title, placeholder, type }) {
   return (
     <>
       <div className="mb-6">
@@ -7,7 +7,7 @@ export default function InputDiv({ saveValue, title, placeholder }) {
         </label>
         <input
           id={title}
-          type="text"
+          type={type}
           onChange={saveValue}
           placeholder={placeholder}
           className="inputStyle"

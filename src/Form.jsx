@@ -19,8 +19,10 @@ export default function Form() {
   function runCode(e) {
     e.preventDefault();
     let { x, y, d } = coardinations;
+    x = parseInt(x);
+    y = parseInt(y);
+    d = parseInt(d);
     let stopped = false;
-
     for (let i = 0; i < codeArr.length; i++) {
       let cmd = codeArr[i];
       let nextX = x;
@@ -89,6 +91,7 @@ export default function Form() {
           saveValue={(e) => setCode(e.target.value)}
           title={"Code"}
           placeholder={"please Enter Code"}
+          type={"text"}
         />
         <InputDiv
           saveValue={(e) =>
@@ -96,6 +99,7 @@ export default function Form() {
           }
           title={"X"}
           placeholder={" X Directions"}
+          type={"number"}
         />
         <InputDiv
           saveValue={(e) =>
@@ -103,6 +107,7 @@ export default function Form() {
           }
           title={"Y"}
           placeholder={" Y Directions"}
+          type={"number"}
         />
 
         <SelectDiv

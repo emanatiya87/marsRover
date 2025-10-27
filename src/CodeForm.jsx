@@ -16,8 +16,8 @@ export default function CodeForm() {
   const [code, setCode] = useState([]);
   function run(e) {
     e.preventDefault();
-    let ySteps = Math.abs(Number(nextCoordinates.y) - Number(coardinations.y));
-    let xSteps = Math.abs(Number(nextCoordinates.x) - Number(coardinations.x));
+    let ySteps = Math.abs(nextCoordinates.y - coardinations.y);
+    let xSteps = Math.abs(nextCoordinates.x - coardinations.x);
     // north
     if (coardinations.d == 0) {
       if (nextCoordinates.y > coardinations.y) {
@@ -92,6 +92,7 @@ export default function CodeForm() {
           }
           title={"Current X"}
           placeholder={"X Directions"}
+          type={"number"}
         />
         <InputDiv
           saveValue={(e) =>
@@ -99,6 +100,7 @@ export default function CodeForm() {
           }
           title={"Current Y"}
           placeholder={"Y Directions"}
+          type={"number"}
         />
         <SelectDiv
           title={"Current Directions"}
@@ -115,6 +117,7 @@ export default function CodeForm() {
           }
           title={"Next X"}
           placeholder={"X Directions"}
+          type={"number"}
         />
         <InputDiv
           saveValue={(e) =>
@@ -122,6 +125,7 @@ export default function CodeForm() {
           }
           title={"Next Y"}
           placeholder={"Y Directions"}
+          type={"number"}
         />
         <Btn type={"submit"} content={"Run"} />
       </form>
