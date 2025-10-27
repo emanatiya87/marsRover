@@ -15,6 +15,7 @@ export default function CodeForm() {
   });
   const [code, setCode] = useState([]);
   function run(e) {
+    setCode("");
     e.preventDefault();
     let ySteps = Math.abs(nextCoordinates.y - coardinations.y);
     let xSteps = Math.abs(nextCoordinates.x - coardinations.x);
