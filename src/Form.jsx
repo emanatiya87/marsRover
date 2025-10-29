@@ -88,7 +88,7 @@ export default function Form() {
 
       <form onSubmit={runCode}>
         <InputDiv
-          saveValue={(e) => setCode(e.target.value)}
+          saveValue={(e) => setCode(e.target.value.trim().toUpperCase())}
           title={"Code"}
           placeholder={"please Enter Code"}
           type={"text"}
