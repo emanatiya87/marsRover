@@ -9,7 +9,7 @@ export default function Form() {
   const [code, setCode] = useState("");
   let codeArr = code.split("");
   const { coardinations, setCoardinations } = useCoardinations();
-
+  const [error, setError] = useState("");
   const directions = ["north", "east", "south", "west"];
   let obstacles = [
     [1, 4],
@@ -17,6 +17,7 @@ export default function Form() {
     [7, 4],
   ];
   function runCode(e) {
+    setError("");
     e.preventDefault();
     let { x, y, d } = coardinations;
     x = parseInt(x);
@@ -63,6 +64,9 @@ export default function Form() {
       } else if (cmd === "L") {
         d = (d + 3) % 4;
         continue;
+      } else {
+        setError("Invalid Code input !!");
+        break;
       }
 
       const hitObstacle = obstacles.some(
@@ -93,7 +97,7 @@ export default function Form() {
   return (
     <>
       <HeadTitle />
-
+      <h2 className="text-center text-red-600 font-bold text-2xl">{error}</h2>
       <form onSubmit={runCode}>
         <InputDiv
           saveValue={handelCodeChange}
