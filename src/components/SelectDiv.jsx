@@ -1,14 +1,15 @@
-export default function SelectDiv({ saveValue, title }) {
+import React from "react";
+function SelectDiv({ saveValue, title, id }) {
   return (
     <>
       <div className="mb-6">
-        <label htmlFor={title} className="labelStyle">
+        <label htmlFor={id} className="labelStyle">
           {title}:
         </label>
         <select
           className="inputStyle"
           name="Directions"
-          id={title}
+          id={id}
           onChange={saveValue}
         >
           <option defaultValue hidden>
@@ -23,3 +24,4 @@ export default function SelectDiv({ saveValue, title }) {
     </>
   );
 }
+export default React.memo(SelectDiv);

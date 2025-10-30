@@ -1,7 +1,7 @@
 import InputDiv from "./components/InputDiv";
 import SelectDiv from "./components/SelectDiv";
 import Btn from "./components/Btn";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 export default function CodeForm() {
   const [coardinations, setCoardinations] = useState({
     x: 0,
@@ -80,6 +80,15 @@ export default function CodeForm() {
       }
     }
   }
+  // functions input change
+  const handleCoordinationChange = useCallback((e) => {
+    const { id, value } = e.target;
+    setCoardinations((prev) => ({ ...prev, [id]: value }));
+  }, []);
+  const handleNextCoordinationChange = useCallback((e) => {
+    const { id, value } = e.target;
+    setNextCoordinates((prev) => ({ ...prev, [id]: value }));
+  }, []);
   return (
     <>
       <h2 className="text-center font-bold">
@@ -88,45 +97,40 @@ export default function CodeForm() {
       </h2>
       <form onSubmit={run}>
         <InputDiv
-          saveValue={(e) =>
-            setCoardinations((prev) => ({ ...prev, x: e.target.value }))
-          }
+          saveValue={handleCoordinationChange}
           title={"Current X"}
           placeholder={"X Directions"}
           type={"number"}
+          id="x"
         />
         <InputDiv
-          saveValue={(e) =>
-            setCoardinations((prev) => ({ ...prev, y: e.target.value }))
-          }
+          saveValue={handleCoordinationChange}
           title={"Current Y"}
           placeholder={"Y Directions"}
           type={"number"}
+          id="y"
         />
         <SelectDiv
           title={"Current Directions"}
-          saveValue={(e) =>
-            setCoardinations((prev) => ({ ...prev, d: e.target.value }))
-          }
+          saveValue={handleCoordinationChange}
+          id="d"
         />
         <h2 className="text-center font-bold">
           Distination : ({nextCoordinates.x},{nextCoordinates.y})
         </h2>
         <InputDiv
-          saveValue={(e) =>
-            setNextCoordinates((prev) => ({ ...prev, x: e.target.value }))
-          }
+          saveValue={handleNextCoordinationChange}
           title={"Next X"}
           placeholder={"X Directions"}
           type={"number"}
+          id="x"
         />
         <InputDiv
-          saveValue={(e) =>
-            setNextCoordinates((prev) => ({ ...prev, y: e.target.value }))
-          }
+          saveValue={handleNextCoordinationChange}
           title={"Next Y"}
           placeholder={"Y Directions"}
           type={"number"}
+          id="y"
         />
         <Btn type={"submit"} content={"Run"} />
       </form>

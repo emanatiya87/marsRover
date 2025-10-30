@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Btn from "./components/Btn";
 import SelectDiv from "./components/SelectDiv";
 import InputDiv from "./components/InputDiv";
@@ -81,6 +81,14 @@ export default function Form() {
 
     setCoardinations({ x, y, d, stopped });
   }
+  // functions input change
+  const handleCoordinationChange = useCallback((e) => {
+    const { id, value } = e.target;
+    setCoardinations((prev) => ({ ...prev, [id]: value }));
+  }, []);
+  const handelCodeChange = useCallback((e) => {
+    setCode(e.target.value.trim().toUpperCase());
+  }, []);
 
   return (
     <>
@@ -88,33 +96,30 @@ export default function Form() {
 
       <form onSubmit={runCode}>
         <InputDiv
-          saveValue={(e) => setCode(e.target.value.trim().toUpperCase())}
+          saveValue={handelCodeChange}
           title={"Code"}
           placeholder={"please Enter Code"}
           type={"text"}
         />
         <InputDiv
-          saveValue={(e) =>
-            setCoardinations((prev) => ({ ...prev, x: e.target.value }))
-          }
+          saveValue={handleCoordinationChange}
           title={"X"}
           placeholder={" X Directions"}
           type={"number"}
+          id="x"
         />
         <InputDiv
-          saveValue={(e) =>
-            setCoardinations((prev) => ({ ...prev, y: e.target.value }))
-          }
+          saveValue={handleCoordinationChange}
           title={"Y"}
           placeholder={" Y Directions"}
           type={"number"}
+          id="y"
         />
 
         <SelectDiv
           title={"Directions"}
-          saveValue={(e) =>
-            setCoardinations((prev) => ({ ...prev, d: e.target.value }))
-          }
+          saveValue={handleCoordinationChange}
+          id={"d"}
         />
         <Btn type={"submit"} content={"Run"} />
       </form>

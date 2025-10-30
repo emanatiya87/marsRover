@@ -1,12 +1,13 @@
-export default function InputDiv({ saveValue, title, placeholder, type }) {
+import React from "react";
+function InputDiv({ saveValue, title, placeholder, type, id }) {
   return (
     <>
       <div className="mb-6">
-        <label htmlFor={title} className="labelStyle">
+        <label htmlFor={id} className="labelStyle">
           {title}:
         </label>
         <input
-          id={title}
+          id={id}
           type={type}
           onChange={saveValue}
           placeholder={placeholder}
@@ -16,3 +17,4 @@ export default function InputDiv({ saveValue, title, placeholder, type }) {
     </>
   );
 }
+export default React.memo(InputDiv);
