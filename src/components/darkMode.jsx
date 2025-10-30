@@ -21,7 +21,7 @@ export default function Dark() {
   return (
     <button
       onClick={toggleTheme}
-      className="px-4 py-2 rounded-md bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition"
+      className="px-4 py-2 rounded-md bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition cursor-pointer"
     >
       {theme === "dark" ? <CiLight /> : <MdDarkMode />}
     </button>
