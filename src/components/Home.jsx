@@ -17,6 +17,14 @@ export default function Home() {
           here ..
         </Link>
       </h2>
+      <br />
+      <h2>
+        {" "}
+        <Link to="/FindCodeEscObs" className="text-red-600">
+          {" "}
+          BFS
+        </Link>
+      </h2>
     </>
   );
 }

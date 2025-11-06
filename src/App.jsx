@@ -6,6 +6,7 @@ import { CoardinationsProvider } from "./components/CoardinationsContext";
 import CodeForm from "./CodeForm";
 import Home from "./components/Home";
 import { FaHome } from "react-icons/fa";
+import CodeFormEscObs from "./components/CodeFormEscObs";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/FindCoordinates" element={<Form />} />
                 <Route path="/FindCode" element={<CodeForm />} />
+                <Route path="*" element={<h2>Not found</h2>} />
+                <Route path="/FindCodeEscObs" element={<CodeFormEscObs />} />
               </Routes>
             </div>
           </div>
