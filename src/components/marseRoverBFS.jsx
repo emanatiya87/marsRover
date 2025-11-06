@@ -37,7 +37,7 @@ export default function FindSafePath(start, target, obstacles) {
         type: "L",
         newX: x,
         newY: y,
-        newDir: (dir + 3) % 4, // -1 mod 4
+        newDir: (dir + 3) % 4,
         isValid: () => true,
       },
       // Rotate right
@@ -45,7 +45,7 @@ export default function FindSafePath(start, target, obstacles) {
         type: "R",
         newX: x,
         newY: y,
-        newDir: (dir + 1) % 4, // +1 mod 4
+        newDir: (dir + 1) % 4,
         isValid: () => true,
       },
     ];
