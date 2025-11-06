@@ -22,6 +22,7 @@ export default function CodeFormEscObs() {
   function run(e) {
     e.preventDefault();
     setError("");
+    setCode([]);
 
     const start = {
       x: parseInt(coardinations.x),
@@ -35,6 +36,23 @@ export default function CodeFormEscObs() {
     };
 
     console.log("Finding path from:", start, "to:", target);
+    const targetKey = `${target.x},${target.y}`;
+    if (obstacles.has(targetKey)) {
+      setError(
+        "Error: Target destination is an obstacle! Cannot navigate to this point."
+      );
+      console.log("Target is obstacle:", targetKey);
+      return;
+    }
+
+    const startKey = `${start.x},${start.y}`;
+    if (obstacles.has(startKey)) {
+      setError(
+        "Error: Starting position is on an obstacle! Please choose a valid start point."
+      );
+      console.log("Start is obstacle:", startKey);
+      return;
+    }
 
     const path = FindSafePath(start, target, obstacles);
 
@@ -105,7 +123,7 @@ export default function CodeFormEscObs() {
         <Btn type={"submit"} content={"Run"} />
       </form>
       <h3 className="text-center font-bold">Code: {code.join("")}</h3>
-      {error && <p className="text-center text-red-500">{error}</p>}
+      <p className="text-center text-red-500">{error}</p>
     </>
   );
 }
