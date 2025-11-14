@@ -1,12 +1,12 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes, Link } from "react-router";
 import Dark from "./components/darkMode";
-import Form from "./Form";
 import { CoardinationsProvider } from "./components/CoardinationsContext";
-import CodeForm from "./CodeForm";
-import Home from "./components/Home";
+import CodeForm from "./pages/FormFindCode";
+import CodeFormEscObs from "./pages/CodeFormEscObs";
+import Form from "./pages/FormFindCoordinates ";
+import Home from "./pages/Home";
 import { FaHome } from "react-icons/fa";
-import CodeFormEscObs from "./components/CodeFormEscObs";
 
 function App() {
   return (
@@ -25,8 +25,8 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/FindCoordinates" element={<Form />} />
                 <Route path="/FindCode" element={<CodeForm />} />
-                <Route path="*" element={<h2>Not found</h2>} />
                 <Route path="/FindCodeEscObs" element={<CodeFormEscObs />} />
+                <Route path="*" element={<h2>Not found</h2>} />
               </Routes>
             </div>
           </div>

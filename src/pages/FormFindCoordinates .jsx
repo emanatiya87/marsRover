@@ -1,9 +1,9 @@
 import { useState, useCallback } from "react";
-import Btn from "./components/Btn";
-import SelectDiv from "./components/SelectDiv";
-import InputDiv from "./components/InputDiv";
-import { useCoardinations } from "./components/CoardinationsContext";
-import HeadTitle from "./components/HeadTitle";
+import Btn from "../components/Btn";
+import SelectDiv from "../components/SelectDiv";
+import InputDiv from "../components/InputDiv";
+import { useCoardinations } from "../components/CoardinationsContext";
+import HeadTitle from "../components/HeadTitle";
 
 export default function Form() {
   const [code, setCode] = useState("");

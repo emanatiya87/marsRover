@@ -1,6 +1,6 @@
-import InputDiv from "./components/InputDiv";
-import SelectDiv from "./components/SelectDiv";
-import Btn from "./components/Btn";
+import InputDiv from "../components/InputDiv";
+import SelectDiv from "../components/SelectDiv";
+import Btn from "../components/Btn";
 import { useState, useCallback } from "react";
 export default function CodeForm() {
   const [coardinations, setCoardinations] = useState({

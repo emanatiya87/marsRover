@@ -1,8 +1,8 @@
-import InputDiv from "./InputDiv";
-import SelectDiv from "./SelectDiv";
-import Btn from "./Btn";
+import InputDiv from "../components/InputDiv";
+import SelectDiv from "../components/SelectDiv";
+import Btn from "../components/Btn";
+import FindSafePath from "../utils/BFS";
 import { useState, useCallback } from "react";
-import FindSafePath from "./marseRoverBFS";
 export default function CodeFormEscObs() {
   const [coardinations, setCoardinations] = useState({
     x: 0,
